@@ -1,4 +1,4 @@
-const db = require('../routes/db-config')
+const UserController = require('./UserController')
 
 const register = async (req, res) => {
     const user = req.body
@@ -6,20 +6,20 @@ const register = async (req, res) => {
         return res.json({ status: "error", error: "Por favor entre com seu email e senha" })
     } else {
 
-        db.query('SELECT email FROM cliente WHERE email = ?', [user.email], async (err, result) => {
-            if (err) throw err
+        const verifEmail = await new UserController().verifEmail(user.email)
+        if (verifEmail) {
+            const userSaved = {
+                nome: user.nome,
+                email: user.email,
+                senha: user.password
+            }
+            new UserController().save(userSaved)
+            return res.json({ status: "success", success: "Usuário registrado com sucesso" })
 
-            if (result[0]) {
-                return res.json({ status: "error", error: "Email já se encontra registrado" })
-            }
-            else {
-                const sql = "INSERT INTO cliente (nome, email, senha) VALUES (?, ?, ?)";
-                db.query(sql, [`${user.nome}`, `${user.email}`, `${user.password}`], (error, result) => {
-                    if (error) throw error
-                    return res.json({ status: "success", success: "Usuário registrado com sucesso" })
-                })
-            }
-        })
+        } else {
+            return res.json({ status: "error", error: "Email já se encontra registrado" })
+
+        }
     }
 }
 
