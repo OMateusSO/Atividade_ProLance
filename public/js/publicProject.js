@@ -1,12 +1,14 @@
-form.addEventListener('submit', () => {
-    const login = {
-        email: email.value,
-        password: password.value
+const form = document.querySelector('form')
+form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const job = {
+        titulo: titulo.value,
+        descricao: descricao.value
     }
 
-    fetch("/api/login", {
+    fetch("/api/jobs", {
         method: "POST",
-        body: JSON.stringify(login),
+        body: JSON.stringify(job),
         headers: {
             "Content-Type": "application/json"
         }
@@ -24,6 +26,5 @@ form.addEventListener('submit', () => {
                 // success.innerText = data.success
                 // alert(data.success)
             }
-            // console.log(data)
         })
 })

@@ -11,7 +11,8 @@ module.exports = new EntitySchema({
             generated: true,
         },
         idUser: {
-            type: "int"
+            type: "int",
+
         },
         titulo: {
             type: "varchar",

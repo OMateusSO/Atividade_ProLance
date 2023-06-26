@@ -17,6 +17,15 @@ module.exports = class UserController {
         }
     }
 
+    async findID(id) {
+        const findid = await db.manager.find(UserEntity, { where: { id: id } });
+        if (findid.length === 0) {
+            return false
+        } else {
+            return findid
+        }
+    }
+
     async verifEmail(email) {
         const verifEmail = await db.manager.find(UserEntity, { where: { email: email } });
 
