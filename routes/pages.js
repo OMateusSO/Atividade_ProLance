@@ -12,9 +12,14 @@ router.get('/register', (req, res) => {
     res.sendFile('register.html', { root: './public/' })
 })
 
+router.get('/contatos', (req, res) => {
+    res.sendFile('contatos.html', { root: './public/' })
+})
+
 router.get('/login', loggedIn, (req, res) => {
     if (!req.user) {
         res.sendFile('login.html', { root: './public/' })
+        res.redirect("/lancaprojetos")
     } else if (req.user) {
         res.redirect("/lancaprojetos")
     }
