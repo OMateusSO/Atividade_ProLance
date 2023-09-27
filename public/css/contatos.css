@@ -1,25 +1,31 @@
-.form-contato {
-    width: 100%;
-    margin-top: 120px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.form h1 {
-    padding: 1px 0;
+.container-conteudo .container-left-contato{
+    width: 45%;
 }
 
-.form input {
-    margin: 5px 0;
-    padding: 5px;
-    width: 100%;
+img{
+    width: 700px;
+    height: 935px;
 }
 
-.form .btn-form {
-    margin: 10px 0 0 0;
-    padding: 15px;
-    width: 180px;
-    background-color: #8aef96aa;
-    cursor: pointer;
-    border: none;
+
+.container-conteudo .container-right-contato .form-contato h2 {   
+    margin-top: 200px;
+    font-size: 100px;
+    
 }
+
+.container-conteudo .container-right-contato p{   
+    
+    font-size: 30px;
+    line-height: 100px;
+  
+}
+
+
+
+
+
+
+
+
+
