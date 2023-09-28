@@ -1,9 +1,11 @@
+
 .form-login {
     width: 100%;
     margin-top: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 300px;
 }
 
 .form {
@@ -31,7 +33,7 @@
     margin: 10px 0 0 0;
     padding: 15px;
     width: 180px;
-    background-color: #8aef96aa;
+    background-color: #5ce1e6;;
     cursor: pointer;
     border: none;
 }
