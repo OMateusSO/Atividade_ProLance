@@ -1,4 +1,4 @@
-form.addEventListener('submit', () => {
+const callApi = () => {
     const login = {
         email: email.value,
         password: password.value
@@ -23,7 +23,15 @@ form.addEventListener('submit', () => {
                 // errorr.style.display = 'none'
                 // success.innerText = data.success
                 // alert(data.success)
+                window.location.reload()
             }
             // console.log(data)
         })
+}
+form.addEventListener('submit', () => {
+    callApi()
+})
+
+document.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") callApi()
 })
