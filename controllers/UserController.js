@@ -8,8 +8,8 @@ module.exports = class UserController {
         return await userTable.save(user);
     }
 
-    async findUser(email, senha) {
-        const findUser = await db.manager.find(UserEntity, { where: { email: email, senha: senha } });
+    async findUser(email) {
+        const findUser = await db.manager.find(UserEntity, { where: { email: email } });
         if (findUser.length === 0) {
             return false
         } else {

@@ -1,5 +1,5 @@
 const UserController = require('./UserController')
-
+const bcrypt = require("bcrypt")
 const register = async (req, res) => {
     const user = req.body
     if (!user.email || !user.password || !user.nome) {
@@ -11,7 +11,7 @@ const register = async (req, res) => {
             const userSaved = {
                 nome: user.nome,
                 email: user.email,
-                senha: user.password
+                senha: await bcrypt.hash(user.password, 8)
             }
             new UserController().save(userSaved)
             return res.json({ status: "success", success: "Usuário registrado com sucesso" })

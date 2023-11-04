@@ -3,7 +3,7 @@ const callApi = () => {
         email: email.value,
         password: password.value
     }
-
+    console.log("callAPI")
     fetch("/api/login", {
         method: "POST",
         body: JSON.stringify(login),
@@ -13,22 +13,17 @@ const callApi = () => {
     }).then(res => res.json())
         .then(data => {
             if (data.status == "error") {
-                // success.style.display = 'none'
-                // errorr.style.display = 'block'
-                // errorr.innerText = data.error
+
                 alert(data.error)
 
             } else {
-                // success.style.display = 'block'
-                // errorr.style.display = 'none'
-                // success.innerText = data.success
-                // alert(data.success)
+
                 window.location.reload()
             }
-            // console.log(data)
         })
 }
-form.addEventListener('submit', () => {
+document.getElementById("btn-login").addEventListener('click', (e) => {
+    e.preventDefault()
     callApi()
 })
 

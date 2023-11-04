@@ -21,7 +21,7 @@ router.get('/login', loggedIn, (req, res) => {
 })
 
 router.get('/lancaprojetos', loggedIn, async (req, res) => {
-    if (req.user) { res.render('lancaprojetos', { status: "loggedIn", user: req.user }) } else { res.redirect("/login") }
+    if (await req.user) { res.render('lancaprojetos', { status: "loggedIn", user: req.user }) } else { res.redirect("/login") }
 })
 router.get('/logout', logout)
 
