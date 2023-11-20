@@ -4,10 +4,10 @@ const User = require('./entity/User');
 const Job = require('./entity/Job');
 const AppDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: "192.168.56.1",
     port: 3306,
-    username: "root",
-    password: "",
+    username: "rootPC",
+    password: "123",
     database: "atividade",
     synchronize: true,
     logging: false,
