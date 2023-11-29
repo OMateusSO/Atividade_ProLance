@@ -3,11 +3,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 250px;
+    margin-top: 200px;
 }
 
 .form {
-    background-color: #E9E8EA;
+    background-color: #d9d9d9;
     padding: 30px;
     width: 360px;
     display: flex;
